@@ -5,6 +5,8 @@ services:
     build: .
     ports:
       - 3000:3000
+    volumes:
+      - .:/home/node/app
   db:
     image: mysql:8.0.30-debian
     environment:
@@ -14,3 +16,4 @@ services:
       - 3306:3306
     volumes:
       - ./.docker/dbdata:/var/lib/mysql
+      - /home/node/app/node_modules
